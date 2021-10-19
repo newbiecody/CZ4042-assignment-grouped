@@ -1,0 +1,73 @@
+<style>
+body {
+	background-image: url("https://www.clerkenwellbeing.co.uk/wp-content/uploads/2016/07/Untitled-design-1024x576.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+img {
+	border: 5px solid black;
+}
+p.inline {
+	background: white;
+	border: 5px solid black;
+	width: 200px;
+	font-weight: bolder;
+	font-size: 50px;
+	text-decoration: underline;
+}
+.flexWrap {
+	display: flex;
+	width: 100%;
+}
+.flexCol{
+	box-sizing: border-box;
+	padding: 10px;
+	width: 50%;
+}
+.flexCol1{
+	box-sizing: boder-box;
+	position: relative;
+	top: 200px;
+	left: 200px;
+	width: 50%;
+}
+@media only screen and (max-width: 768px){
+	.flexWrap { flex-wrap: wrap; }
+	.flexCol { width: 100%; }
+	.flexCol1 { width: 100%; }
+}
+</style>
+
+
+
+<html>
+  <head>
+    <title>Facial Expression Analyzer</title>
+  </head>
+  <body>
+  
+	<div class="flexWrap">
+		<div class="flexCol">
+			<h1>Facial Expression Analyzer</h1>
+			<img id="bg" src="{{ url_for('video_feed') }}">
+		</div>
+		<div class="flexCol1">
+			<h1>&ltTone-Prediction&gt</h1>
+				<span class="inline">
+					<p class="inline" id="pred">Here will be the prediction</p>
+						<script>
+							var prediction = document.getElementById("pred");
+
+							setInterval(() => {
+								fetch("{{ url_for('pred') }}")
+								.then(response => {
+										response.text().then(t => {prediction.innerHTML = t})
+									});
+								}, 500);  
+						</script>
+				</span>
+		</div>
+	</div>
+	
+  </body>
+</html>
