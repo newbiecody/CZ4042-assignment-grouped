@@ -27,12 +27,11 @@ class PredictScreen(QDialog):
     mic = snd.default_microphone()
     spk = snd.default_speaker()
     data = []
-    model = load_model("test_model_0.71.hdf5") # TO BE CHANGED
+    model = load_model("test_model_0.71.hdf5")
 
-    EMOTIONS = ['Angry', 'Disgusted', 
-            'Fearful', 'Happy', 
-            'Neutral', 'Sad', 
-            'Suprised']
+    EMOTIONS = ['Angry', 'Bordom', 'Calm', 
+                'Disgusted', 'Fearful', 'Happy', 
+                'Neutral', 'Sad', 'Suprised']
     lb = LabelEncoder()
     utils.to_categorical(lb.fit_transform(EMOTIONS))
 
@@ -48,7 +47,7 @@ class PredictScreen(QDialog):
         QTimer.singleShot(50, self.recorded)
 
     def recorded(self):
-        self.data = self.mic.record(samplerate = 48000, numframes=48000*3)
+        self.data = self.mic.record(samplerate = 48000, numframes=48000*5)
         self.info.setText("Recording Done")
 
         self.predbutton = QPushButton(self)
@@ -91,7 +90,6 @@ class PredictScreen(QDialog):
 
     def display_result(self, prediction):
         self.predict_text.setText(prediction[0])
-        # TO BE ADDED WITH PERCENTAGE IF POSSIBLE
 
 # Main
 app = QApplication(sys.argv)    # Creating an application

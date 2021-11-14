@@ -68,7 +68,7 @@ background-color: rgb(170, 255, 255);</string>
     <property name="geometry">
      <rect>
       <x>350</x>
-      <y>190</y>
+      <y>300</y>
       <width>601</width>
       <height>261</height>
      </rect>
@@ -129,14 +129,14 @@ color: rgb(170, 0, 0);</string>
     <property name="geometry">
      <rect>
       <x>350</x>
-      <y>510</y>
+      <y>350</y>
       <width>601</width>
       <height>151</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">text-decoration: underline;
-font: 200 22pt &quot;MS Shell Dlg 2&quot;;
+font: 200 40pt &quot;MS Shell Dlg 2&quot;;
 </string>
     </property>
     <property name="text">
