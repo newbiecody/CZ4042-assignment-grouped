@@ -64,7 +64,11 @@ class PredictScreen(QDialog):
             self.error.setText("Please record before playing.")
             QTimer.singleShot(1500, lambda: self.error.clear())
         else:
-            self.spk.play(self.data/np.max(self.data), samplerate=48000)
+            #self.error.setStyleSheet()
+            self.error.setText('<font color="black">Playing...</font>')
+            QTimer.singleShot(250, lambda: self.spk.play(self.data/np.max(self.data), samplerate=48000))
+            QTimer.singleShot(1500, lambda: self.error.clear())
+            
 
     def preprocessing(self):
 
