@@ -27,7 +27,7 @@ class PredictScreen(QDialog):
     mic = snd.default_microphone()
     spk = snd.default_speaker()
     data = []
-    model = load_model("test_model_0.71.hdf5")
+    model = load_model("sm_model_0.71.hdf5")
 
     EMOTIONS = ['Angry', 'Bordom', 'Calm', 
                 'Disgusted', 'Fearful', 'Happy', 
